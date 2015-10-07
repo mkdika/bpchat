@@ -19,25 +19,17 @@
         <!-- for a error message by a failure. -->
         <!-- Further the page after a successfully login. -->
         <!-- ====================================================== -->
-        <form-login login-page="/login.xhtml"
-                    authentication-failure-url="/login.xhtml?login_error=1"
-                    default-target-url="/pages/main.xhtml" always-use-default-target="true" />
-        <intercept-url pattern="/login.xhtml" access="IS_AUTHENTICATED_ANONYMOUSLY" />         
-        <intercept-url pattern="/pages/*.xhtml" access="ROLE_DEFAULT" />        
+        <form-login login-page="/login.htm"
+                    authentication-failure-url="/login.htm?login_error=1"
+                    default-target-url="/pages/main.htm" always-use-default-target="true" />
+        <intercept-url pattern="/login.htm" access="IS_AUTHENTICATED_ANONYMOUSLY" />         
+        <intercept-url pattern="/pages/*.htm" access="ROLE_DEFAULT" />        
                              
         <!--Testing logout invalidate session-->        
         <logout 
             invalidate-session="true" 
-            logout-success-url="/login.xhtml"
+            logout-success-url="/login.htm"
             logout-url="/j_spring_security_logout" />                   
     </http>  
-    
-    <!--START custom auth manager-->
-    <authentication-manager alias="authenticationManager" erase-credentials="false">
-        <authentication-provider ref="customAuthProvider"/>
-    </authentication-manager> 
-    <beans:bean id="userDetailService" class="com.waruna.mjsgps.helper.UserDetailService" />    
-    <beans:bean id="customAuthProvider" class="com.waruna.mjsgps.helper.CustomAuthProvider" />
-    <!--END custom auth manager-->
-            
+                   
 </beans:beans>

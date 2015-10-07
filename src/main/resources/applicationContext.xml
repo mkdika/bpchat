@@ -19,49 +19,6 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
     
     <context:annotation-config />
-    <context:component-scan base-package="com.waruna.mjsgps" />
-    
-    <!--Spring Scheduler Config-->
-    <task:annotation-driven />
-    <bean id="GpsTrackingBot" class="com.waruna.mjsgps.schedule.GpsTrackingBot"/>
-    <!--End Spring Scheduler Config-->
-         
-<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="org.postgresql.Driver"
-          p:url="jdbc:postgresql://localhost:5432/mjsgps"
-          p:username="postgres"
-          p:password="postgres" />-->
-          
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />        
-        <property name="packagesToScan" value="com.waruna.mjsgps.domain" />
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>  
-                <prop key="hibernate.show_sql">false</prop>
-                <prop key="hibernate.format_sql">false</prop>
-            </props>
-        </property>
-    </bean>
-    
-    <tx:annotation-driven transaction-manager="transactionManager" />
- 
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory" />
-    </bean>
-                  
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
-                     
-    <bean id="serviceDAO" class="com.waruna.mjsgps.service.ServiceDAOImpl" />
-    
-    <bean id="singletonConfig" class="com.waruna.mjsgps.helper.SingletonConfig" />
-    
-    <!--DB Connection String from tomcat JNDI Context-->
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName" value="java:comp/env/jdbc/mjsgpsDBsource"/>
-    </bean>           
-    
-    
+    <context:component-scan base-package="com.mkdika.bpchat" />       
+           
 </beans>
