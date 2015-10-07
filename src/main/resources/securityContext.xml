@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!--add security to service layer method eg:@Secured({"ROLE_USER"})-->
+    <global-method-security secured-annotations="enabled" pre-post-annotations="enabled"/>    
+
+    <http auto-config="true" >
+        <!-- ====================================================== -->
+        <!-- If we have our own LoginPage. So we must -->
+        <!-- tell Spring the name and the place. -->
+        <!-- In our case we take the same page -->
+        <!-- for a error message by a failure. -->
+        <!-- Further the page after a successfully login. -->
+        <!-- ====================================================== -->
+        <form-login login-page="/login.xhtml"
+                    authentication-failure-url="/login.xhtml?login_error=1"
+                    default-target-url="/pages/main.xhtml" always-use-default-target="true" />
+        <intercept-url pattern="/login.xhtml" access="IS_AUTHENTICATED_ANONYMOUSLY" />         
+        <intercept-url pattern="/pages/*.xhtml" access="ROLE_DEFAULT" />        
+                             
+        <!--Testing logout invalidate session-->        
+        <logout 
+            invalidate-session="true" 
+            logout-success-url="/login.xhtml"
+            logout-url="/j_spring_security_logout" />                   
+    </http>  
+    
+    <!--START custom auth manager-->
+    <authentication-manager alias="authenticationManager" erase-credentials="false">
+        <authentication-provider ref="customAuthProvider"/>
+    </authentication-manager> 
+    <beans:bean id="userDetailService" class="com.waruna.mjsgps.helper.UserDetailService" />    
+    <beans:bean id="customAuthProvider" class="com.waruna.mjsgps.helper.CustomAuthProvider" />
+    <!--END custom auth manager-->
+            
+</beans:beans>
