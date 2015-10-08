@@ -9,7 +9,9 @@
             </packagings>
             <goals>
                 <goal>jetty:run</goal>
-                <goal>-Djetty.http.port=7369</goal>
+                
+                
+                
             </goals>
         </action>
     </actions>

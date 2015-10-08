@@ -7,10 +7,11 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext.xml
-            classpath:securityContext.xml
+            <!--classpath:securityContext.xml-->
         </param-value>
     </context-param>
             
+    <!--    
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -20,10 +21,12 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    -->
+    
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <!--END Spring Security-->
+    
 
     <listener>
         <description>ZK listener for session cleanup</description>
@@ -170,6 +173,6 @@
     </mime-mapping>
 
     <welcome-file-list>
-        <welcome-file>login.xhtml</welcome-file>
+        <welcome-file>login.htm</welcome-file>
     </welcome-file-list>   
 </web-app>

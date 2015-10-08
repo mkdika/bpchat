@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:x="http://www.w3.org/1999/xhtml">
+    <div apply="org.zkoss.bind.BindComposer" 
+         validationMessages="@id('vmsgs')"
+         viewModel="@id('vm') @init('com.mkdika.bpchat.ui.zk.vm.Main')" >
+        <label value="@load(vm.nama)"/>
+         
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-primary">
+                        <div class="panel-heading">
+                            <x:h3 class="panel-title ">.: Balai Perkibulan Chatting Application v1.0 :.</x:h3>
+                        </div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>                  
+    </div>
+</zk>
