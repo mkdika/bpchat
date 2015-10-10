@@ -27,11 +27,6 @@
             <artifactId>websocket-server</artifactId>
             <version>9.3.3.v20150827</version>
         </dependency>
-<!--        <dependency>    
-            <groupId>org.eclipse.jetty.websocket</groupId>
-            <artifactId>websocket-server</artifactId>
-            <version>9.2.10.v20150310</version>
-        </dependency>-->
         
         <!--Dependency for ZK Framework-->
         <dependency>
@@ -54,6 +49,12 @@
             <artifactId>zul</artifactId>
             <version>7.0.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.zkoss.addons</groupId>
+            <artifactId>zk-bootstrap</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+       
         
         <!--Dependency for Spring Framework-->
         <dependency>
@@ -95,6 +96,31 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>3.2.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-core</artifactId>
+            <version>1.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-web</artifactId>
+            <version>1.1.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-facebook</artifactId>
+            <version>2.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-twitter</artifactId>
+            <version>1.1.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.social</groupId>
+            <artifactId>spring-social-google</artifactId>
+            <version>1.0.0.RELEASE</version>
         </dependency>
         
         

@@ -1,23 +1,218 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?page title="BPChat" contentType="text/html;charset=UTF-8" ?>
+<?link rel="shortcut icon" href="/favicon.ico" ?>
+<!-- Bootstrap Core CSS -->
+<?link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"?>
+<!-- MetisMenu CSS -->
+<?link rel="stylesheet" type="text/css" href="../bower_components/metisMenu/dist/metisMenu.min.css" ?>
+<!-- Custom CSS -->
+<?link rel="stylesheet" type="text/css" href="../dist/css/sb-admin-2.css" ?>
+<!-- Custom Fonts -->
+<?link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.min.css" ?>
+<!-- Social Buttons CSS -->
+<?link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-social/bootstrap-social.css" ?>
+
 <zk xmlns="http://www.zkoss.org/2005/zul"
-    xmlns:x="http://www.w3.org/1999/xhtml">
+    xmlns:n="native">
     <div apply="org.zkoss.bind.BindComposer" 
          validationMessages="@id('vmsgs')"
          viewModel="@id('vm') @init('com.mkdika.bpchat.ui.zk.vm.Main')" >
-        <label value="@load(vm.nama)"/>
-         
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-primary">
-                        <div class="panel-heading">
-                            <x:h3 class="panel-title ">.: Balai Perkibulan Chatting Application v1.0 :.</x:h3>
-                        </div>
-                        <div class="panel-body">
-                        </div>
+        <separator/>
+        <div class="col-lg-12">
+            <div class="chat-panel panel panel-primary">
+                <div class="panel-heading">
+                    <n:i class="fa fa-comments fa-fw"></n:i>
+                    <n:strong> BALAI PERKIBULAN</n:strong>
+                    <n:small>v1.0</n:small>
+                    <div class="btn-group pull-right">
+                        <n:button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                            <n:i class="fa fa-chevron-down"></n:i>
+                        </n:button>
+                        <n:ul class="dropdown-menu slidedown">
+                            <n:li>
+                                <a href="#">
+                                    <n:i class="fa fa-refresh fa-fw"></n:i> Refresh
+                                </a>
+                            </n:li>
+                            <n:li>
+                                <a href="#">
+                                    <n:i class="fa fa-check-circle fa-fw"></n:i> Available
+                                </a>
+                            </n:li>
+                            <n:li>
+                                <a href="#">
+                                    <n:i class="fa fa-times fa-fw"></n:i> Busy
+                                </a>
+                            </n:li>
+                            <n:li>
+                                <a href="#">
+                                    <n:i class="fa fa-clock-o fa-fw"></n:i> Away
+                                </a>
+                            </n:li>
+                            <n:li class="divider"></n:li>
+                            <n:li>
+                                <a href="#">
+                                    <n:i class="fa fa-sign-out fa-fw"></n:i> Sign Out
+                                </a>
+                            </n:li>
+                        </n:ul>
                     </div>
+                </div> 
+                <div class="panel-body">
+                    <n:ul class="chat">
+                        <n:li class="left clearfix">
+                            <n:span class="chat-img pull-left">
+                                <n:img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:strong class="primary-font">Jack Sparrow</n:strong>
+                                    <n:small class="pull-right text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 12 mins ago
+                                    </n:small>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="right clearfix">
+                            <n:span class="chat-img pull-right">
+                                <n:img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:small class=" text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 13 mins ago</n:small>
+                                    <n:strong class="pull-right primary-font">Bhaumik Patel</n:strong>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="left clearfix">
+                            <n:span class="chat-img pull-left">
+                                <n:img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:strong class="primary-font">Jack Sparrow</n:strong>
+                                    <n:small class="pull-right text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 12 mins ago
+                                    </n:small>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="right clearfix">
+                            <n:span class="chat-img pull-right">
+                                <n:img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:small class=" text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 13 mins ago</n:small>
+                                    <n:strong class="pull-right primary-font">Bhaumik Patel</n:strong>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="left clearfix">
+                            <n:span class="chat-img pull-left">
+                                <n:img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:strong class="primary-font">Jack Sparrow</n:strong>
+                                    <n:small class="pull-right text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 12 mins ago
+                                    </n:small>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="right clearfix">
+                            <n:span class="chat-img pull-right">
+                                <n:img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:small class=" text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 13 mins ago</n:small>
+                                    <n:strong class="pull-right primary-font">Bhaumik Patel</n:strong>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="left clearfix">
+                            <n:span class="chat-img pull-left">
+                                <n:img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:strong class="primary-font">Jack Sparrow</n:strong>
+                                    <n:small class="pull-right text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 12 mins ago
+                                    </n:small>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                        <n:li class="right clearfix">
+                            <n:span class="chat-img pull-right">
+                                <n:img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:small class=" text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 13 mins ago</n:small>
+                                    <n:strong class="pull-right primary-font">Bhaumik Patel</n:strong>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>
+                    </n:ul>
                 </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        <n:input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                        <n:span class="input-group-btn">
+                            <n:button class="btn btn-info btn-sm" id="btn-chat">
+                                Send
+                            </n:button>
+                        </n:span>
+                    </div>
+                </div>                                            
             </div>
-        </div>                  
+            <n:address>                        
+                <n:h6 class="text-center">2015 © Maikel Chandika<n:br/>
+                    <n:small>Reach me at: <n:a href="mailto:mkdika@gmail.com">mkdika@gmail.com</n:a>
+                        <n:br/>
+                        Bootstrap3 Themes <n:a href="https://github.com/IronSummitMedia/startbootstrap-sb-admin" target="#">SB Admin</n:a>
+                    </n:small>                            
+                </n:h6>
+            </n:address>   
+        </div>
     </div>
+        
+    <!-- jQuery -->        
+    <script src="../bower_components/jquery/dist/jquery.min.js" />
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js" />
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../bower_components/metisMenu/dist/metisMenu.min.js" />
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js" />
 </zk>

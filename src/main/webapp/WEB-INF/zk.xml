@@ -59,6 +59,29 @@
     <language-mapping>
         <language-name>xml</language-name>
         <extension>xml2html</extension>
-    </language-mapping>      
+    </language-mapping>   
+    
+    <!-- SETUP FOR BOOTSTRAP3 -->   
+    <library-property>
+        <name>org.zkoss.zul.Button.mold</name>
+        <value>bs</value>
+    </library-property>
+    <library-property>
+        <name>org.zkoss.zul.Menupopup.mold</name>
+        <value>bs</value>
+    </library-property>
+    <library-property>
+        <name>org.zkoss.zkmax.zul.Navbar.mold</name>
+        <value>bs</value>
+    </library-property>
+    <library-property>
+        <name>org.zkoss.zul.Paging.mold</name>
+        <value>bs</value>
+    </library-property>
+    <library-property>
+        <name>org.zkoss.zul.Panel.mold</name>
+        <value>bs</value>
+    </library-property>
+    <!-- END SETUP FOR BOOTSTRAP3 -->   
 </zk>
 

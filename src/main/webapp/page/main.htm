@@ -1,48 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"    
+      xmlns:z="http://www.zkoss.org/2005/zul" >
+
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="BPChat">
-        <meta name="author" content="Maikel Chandika">
-        <title>BPChat App v1.0</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="BPChat" />
+        <meta name="author" content="Maikel Chandika" />
+        <title>BPChat 1.0</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- MetisMenu CSS -->
-        <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+        <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet" />
 
         <!-- Custom CSS -->
-        <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+        <link href="../dist/css/sb-admin-2.css" rel="stylesheet" />
 
         <!-- Custom Fonts -->
-        <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Social Buttons CSS -->
-        <link href="../bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+        <link href="../bower_components/bootstrap-social/bootstrap-social.css" rel="stylesheet" />
 
+        <link rel="shortcut icon" href="../favicon.ico"/>
     </head>
     <body bgcolor='#ffffff'><br/>
         <div class="container">
             <div class="row"> 
                 <div class="col-lg-12">
-                    <div class="panel panel-primary">
+                    <div class="chat-panel panel panel-primary" >
                         <div class="panel-heading">
-                            <h3 class="panel-title text-center"><a class="fa fa-comments" style="text-decoration: none"></a><strong> BALAI PERKIBULAN</strong>
-                                <br/><small>Chatting Application v1.0</small></h3>
+                            <i class="fa fa-comments fa-fw"></i>
+                            <strong> BALAI PERKIBULAN</strong>
+                            <small> 1.0</small>
+                            <div class="btn-group pull-right">
+                                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                                <ul class="dropdown-menu slidedown">
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-refresh fa-fw"></i> Refresh
+                                        </a>
+                                    </li>                                    
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="panel-body">
-
-                        </div>                       
+                        <!-- /.panel-heading -->
+                        <div class="panel-body" style="padding-bottom: 1px;">
+                            <ul class="chat" >
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            </small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            </small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            </small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <strong class="primary-font">Jack Sparrow</strong>
+                                            <small class="pull-right text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                            </small>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        <div class="header">
+                                            <small class=" text-muted">
+                                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                        </div>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                        <div class="panel-footer">
+                            <div class="input-group">
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-sm" id="btn-chat">
+                                        Send
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /.panel-footer -->
                     </div>
-                    <address>                        
-                        <h5 class="text-center">2015 © Maikel Chandika<br/>
-                            <small>Reach me at: <a href="mailto:mkdika@gmail.com">mkdika@gmail.com</a><br/>
-                                Bootstrap3 Themes <a href="https://github.com/IronSummitMedia/startbootstrap-sb-admin" target="#">SB Admin</a></small>                            
-                        </h5>
-                    </address>
+                    <h5 class="text-center">2015 © Maikel Chandika<br/>
+                        <small>Reach me at: <a href="mailto:mkdika@gmail.com">mkdika@gmail.com</a><br/>
+                            Bootstrap3 Free Themes <a href="https://github.com/IronSummitMedia/startbootstrap-sb-admin" target="#">SB Admin</a></small>                            
+                    </h5>
                 </div>
             </div>
         </div>
