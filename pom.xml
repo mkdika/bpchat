@@ -49,11 +49,11 @@
             <artifactId>zul</artifactId>
             <version>7.0.3</version>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>org.zkoss.addons</groupId>
             <artifactId>zk-bootstrap</artifactId>
             <version>1.0.0</version>
-        </dependency>
+        </dependency>-->
        
         
         <!--Dependency for Spring Framework-->
