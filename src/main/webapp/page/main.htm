@@ -1,3 +1,4 @@
+<!-- Author: Maikel Chandika <mkdika@gmail.com -->
 <!DOCTYPE html>
 <html lang="en"    
       xmlns:z="http://www.zkoss.org/2005/zul" >
@@ -27,7 +28,18 @@
 
         <link rel="shortcut icon" href="../favicon.ico"/>
     </head>
-    <body bgcolor='#ffffff'><br/>
+    <body bgcolor='#ffffff' onload="connectToChatserver()" ><br/>  
+        <input type="button" value="TESTING" onclick="pops()" />
+        <div class="hidden">
+            <z:label id="errLbl_UsernameMissing"
+                     value="No user name is found. Please input a user name." />
+            <z:label id="errLbl_WebSocketNotSupported"
+                     value="WebSocket NOT supported by your Browser!" />
+            <z:label id="errLbl_UsernameAlreadyInUse"
+                     value="User name is already in use! Please take a new one." />
+            <z:label id="errLbl_FalseCharacterForUsername"
+                     value="User name accepts only following signs: a-z A-Z 0-9." />
+        </div>
         <div class="container">
             <div class="row"> 
                 <div class="col-lg-12">
@@ -60,7 +72,7 @@
                             <ul class="chat" >
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -76,7 +88,7 @@
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -91,7 +103,7 @@
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -106,7 +118,7 @@
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -121,7 +133,7 @@
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -137,7 +149,7 @@
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -152,7 +164,7 @@
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -168,7 +180,7 @@
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -183,7 +195,7 @@
                                 </li>
                                 <li class="left clearfix">
                                     <span class="chat-img pull-left">
-                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -199,7 +211,7 @@
                                 </li>
                                 <li class="right clearfix">
                                     <span class="chat-img pull-right">
-                                        <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                        <!--<img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />-->
                                     </span>
                                     <div class="chat-body clearfix">
                                         <div class="header">
@@ -216,8 +228,8 @@
                         </div>
                         <!-- /.panel-body -->
                         <div class="panel-footer">
-                            <div class="input-group">
-                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                            <div class="input-group">                                
+                                <input id="txtinput" type="text" class="form-control input-sm" placeholder="Type your message here..." />                                
                                 <span class="input-group-btn">
                                     <button class="btn btn-info btn-sm" id="btn-chat">
                                         Send
@@ -235,13 +247,20 @@
             </div>
         </div>
 
-        <!-- jQuery -->
-        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
-        <!-- Custom Theme JavaScript -->
-        <script src="../dist/js/sb-admin-2.js"></script>
+        <!-- WebSocket Chat JS -->
+        <script src="../js/wschat.js"></script>
+
+        <!--         jQuery 
+                <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+                 Bootstrap Core JavaScript 
+                <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+                 Metis Menu Plugin JavaScript 
+                <script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>
+                 Custom Theme JavaScript 
+                <script src="../dist/js/sb-admin-2.js"></script>-->
+
+
+
+
     </body>
 </html>

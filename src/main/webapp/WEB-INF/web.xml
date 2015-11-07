@@ -3,13 +3,13 @@
     <description>BPchat</description>
     <display-name>BPchat</display-name>
        
-    <context-param>
+<!--    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:applicationContext.xml
-            <!--classpath:securityContext.xml-->
+            classpath:securityContext.xml
         </param-value>
-    </context-param>
+    </context-param>-->
             
     <!--    
     <filter>
@@ -23,9 +23,9 @@
     </filter-mapping>
     -->
     
-    <listener>
+<!--    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener>-->
     
 
     <listener>

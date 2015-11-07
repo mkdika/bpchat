@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xmlns:oauth="http://www.springframework.org/schema/security/oauth2" 
+             xmlns:sec="http://www.springframework.org/schema/security"	                  
+             xsi:schemaLocation="
+                http://www.springframework.org/schema/security
+                http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                http://www.springframework.org/schema/security/oauth2 
+                http://www.springframework.org/schema/security/spring-security-oauth2-2.0.xsd
+                http://www.springframework.org/schema/context 
+                http://www.springframework.org/schema/context/spring-context-4.0.xsd" >
+    
+    <global-method-security pre-post-annotations="enabled" />
+    
+    <http auto-config="false" use-expressions="true">
+        <intercept-url pattern="/login.htm" access="permitAll" />
+        <intercept-url pattern="/page/main.htm" access="ROLE_DEFAULT" />                                
+        <form-login login-page="/login.htm" 
+                    authentication-failure-url="/login.htm?login_error=1"
+                    default-target-url="/page/main.htm" always-use-default-target="true" />       
+        <logout 
+            invalidate-session="true" 
+            logout-success-url="/login.htm"
+            logout-url="/j_spring_security_logout" />    
+        
+        <session-management>
+            <!--error-if-maximum-exceeded="true"-->
+            <concurrency-control max-sessions="1"                                 
+                                 expired-url="/login.htm"
+                                 session-registry-alias="sessionRegistry"/> 
+        </session-management>  
+    </http>        
+    
+    <!--START custom auth manager-->
+    <authentication-manager alias="authenticationManager" erase-credentials="false">
+        <authentication-provider user-service-ref="MyUserDetails">
+            <password-encoder hash="plaintext" />
+        </authentication-provider>
+    </authentication-manager>    
+    <beans:bean id="MyUserDetails" class="com.mkdika.bpchat.ui.MyUserDetails" />
+    <!--END custom auth manager-->
+  
+</beans:beans>

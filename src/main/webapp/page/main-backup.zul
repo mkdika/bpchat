@@ -19,17 +19,6 @@
     <window hflex="1" height="100%" border="none" apply="org.zkoss.bind.BindComposer"          
             viewModel="@id('vm') @init('com.mkdika.bpchat.ui.zk.vm.Main')" >
         
-        <!-- ### styles for the message table ### -->
-        <style>
-            .chat-table .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td, .table
-            tbody>tr>td, .table tfoot>tr>td { padding: 3px; line-height: 1.0; vertical-align: top; border-top: 1px solid
-            #e3e3e3; }
-
-            .received { width: 120px; font-size: 11px; nowrap; }
-
-            .nickname { width: 100px; font-size: 13px; nowrap; color:blue; } .text { font-size: 14px; nowrap; }
-        </style>
-        
         <n:div class="hidden">
             <label id="errLbl_UsernameMissing"
                    value="No user name is found. Please input a user name." />
@@ -50,29 +39,46 @@
                     <n:small>1.0</n:small>                   
                 </div> 
                 <div class="panel-body">
-                    <!-- ### chat messages ### -->
-                    <hbox vflex="1" width="100%">
-                        <cell vflex="1" hflex="1" style="border: 1px solid #e3e3e3;">
-
-                            <!-- ### messages table ### -->
-                            <div class="divTable" height="100%" style="overflow:auto;">
-                                <n:table id="response" class="table table-bordered chat-table" width="100%" />
+                    <n:ul class="chat">
+                        <n:li class="left clearfix">
+                            <n:span class="chat-img pull-left">
+                                <n:img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:strong class="primary-font">Jack Sparrow</n:strong>
+                                    <n:small class="pull-right text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 12 mins ago
+                                    </n:small>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
                             </div>
-                        </cell>
-
-                        <!-- ### connected users (nicknames) ### -->
-                        <cell width="150px" style="border: 1px solid #e3e3e3;">
-                            <n:table id="users" class="table chat-table" />
-                        </cell>
-                    </hbox>
+                        </n:li>
+                        <n:li class="right clearfix">
+                            <n:span class="chat-img pull-right">
+                                <n:img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                            </n:span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <n:small class=" text-muted">
+                                        <n:i class="fa fa-clock-o fa-fw"></n:i> 13 mins ago</n:small>
+                                    <n:strong class="pull-right primary-font">Bhaumik Patel</n:strong>
+                                </div>
+                                <n:p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                </n:p>
+                            </div>
+                        </n:li>                        
+                    </n:ul>
                 </div>
                 <div class="panel-footer"  width="100%">
                     <div class="input-group"  width="100%">
                         <!--<n:input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />-->
-                        <textbox id="txtMessage" class="form-control input-sm" placeholder="Type your message here..." width="100%"
-                             w:onOK="sendMessage();" />
+                        <textbox id="txtMessage" class="form-control input-sm" placeholder="Type your message here..." width="100%" />
                         <n:span class="input-group-btn">
-                            <n:button class="btn btn-info btn-sm" id="btn-chat" onclick="sendMessage();">
+                            <n:button class="btn btn-info btn-sm" id="btn-chat" onclick="fok()">
                                 Send
                             </n:button>
                         </n:span>

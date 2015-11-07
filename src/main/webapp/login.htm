@@ -1,3 +1,4 @@
+<!-- Author: Maikel Chandika <mkdika@gmail.com -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,7 +36,7 @@
                         </div>
                         <div class="panel-body">
                             <form role="form">
-                                <a class="btn btn-block btn-social btn-facebook" href='page/main.htm'>
+                                <a class="btn btn-block btn-social btn-facebook" href='page/main.zul' onclick="return uid();">
                                     <i class="fa fa-facebook"></i> Sign in with Facebook
                                 </a>
                                 <a class="btn btn-block btn-social btn-twitter">
@@ -68,5 +69,11 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="dist/js/sb-admin-2.js"></script>
+        <script type="text/javascript">
+            function uid() {
+                var userid = prompt("Please fill the user id.");
+                localStorage.setItem("userid", userid);
+            }
+        </script>    
     </body>
 </html>
