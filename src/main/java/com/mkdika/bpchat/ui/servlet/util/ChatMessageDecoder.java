@@ -30,6 +30,7 @@ public class ChatMessageDecoder implements Decoder.Text<ChatMessage> {
         chatMessage.setMessage(obj.getString("message"));
         chatMessage.setSender(obj.getString("sender"));
         chatMessage.setReceived(new Date());
+        System.out.println(">>>[DECODED] Sender:" + chatMessage.getSender() + ", message: " + chatMessage.getMessage());
         return chatMessage;
     }
 

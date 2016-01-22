@@ -47,7 +47,7 @@ function connectToChatserver() {
     if (!/^[0-9a-zA-Z]+$/.test(uid)) {
         alert(zk('$errLbl_FalseCharacterForUsername').$().getValue());
         return;
-    }
+    }   
 
     wsocket = new WebSocket(serviceLocation + room + '?user=' + uid);
     wsocket.onmessage = onMessageReceived;
@@ -75,9 +75,7 @@ function connectToChatserver() {
     };
 
     wsocket.onclose = function () {
-    };
-
-    alert("Starting websocket chat");
+    };  
 }
 
 /*

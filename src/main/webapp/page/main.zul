@@ -12,12 +12,17 @@
 <?link rel="stylesheet" type="text/css" href="../bower_components/bootstrap-social/bootstrap-social.css" ?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:w="http://www.zkoss.org/2005/zk/client"
     xmlns:n="http://www.zkoss.org/2005/zk/native"
-    xmlns:w="http://www.zkoss.org/2005/zk/client">
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    
     <!-- WebSocket Chat JS -->
     <script src="../js/wschat.js"/>   
+    
     <window hflex="1" height="100%" border="none" apply="org.zkoss.bind.BindComposer"          
-            viewModel="@id('vm') @init('com.mkdika.bpchat.ui.zk.vm.Main')" >
+            viewModel="@id('vm') @init('com.mkdika.bpchat.ui.zk.vm.Main')" w:onClose="leaveRoom();">
         
         <!-- ### styles for the message table ### -->
         <style>
@@ -88,16 +93,5 @@
                 </n:h6>
             </n:address>   
         </div>
-    </window>
-    
-    
-        
-    <!--     jQuery         
-    <script src="../bower_components/jquery/dist/jquery.min.js" />
-     Bootstrap Core JavaScript 
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js" />
-     Metis Menu Plugin JavaScript 
-    <script src="../bower_components/metisMenu/dist/metisMenu.min.js" />
-     Custom Theme JavaScript 
-    <script src="../dist/js/sb-admin-2.js" />-->
+    </window>    
 </zk>

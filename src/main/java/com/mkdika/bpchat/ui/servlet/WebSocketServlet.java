@@ -129,10 +129,12 @@ public class WebSocketServlet {
          * Send the message to all connected users in the same room.
          */
         String room = (String) session.getUserProperties().get("room");
+        System.out.println(">>> Room: " + room);
 
         try {
             for (Session s : session.getOpenSessions()) {
                 if (s.isOpen() && (room != null) && room.equals(s.getUserProperties().get("room"))) {
+                    System.out.println(">>>>>> user: " + s.getUserProperties().get("user") + ", room: " + s.getUserProperties().get("room"));
 
                     /**
                      * Collect the users nicknames which are connected to this

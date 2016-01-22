@@ -42,8 +42,10 @@ public class ChatMessageEncoder implements Encoder.Text<ChatMessage> {
 
         // format the date
         Date date = chatMessage.getReceived();
-        DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateStr = formatter.format(date);
+        
+        System.out.println(">>>[ENCODE] Sender:" + chatMessage.getSender() + ", message: " + chatMessage.getMessage());
 
         return Json.createObjectBuilder().add("message", chatMessage.getMessage()).add("sender", chatMessage.getSender())
                 .add("received", dateStr).add("nicknames", array).build().toString();
