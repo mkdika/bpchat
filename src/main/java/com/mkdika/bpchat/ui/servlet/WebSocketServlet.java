@@ -4,6 +4,7 @@ import com.mkdika.bpchat.entity.ChatMessage;
 import com.mkdika.bpchat.ui.servlet.util.ChatMessageDecoder;
 import com.mkdika.bpchat.ui.servlet.util.ChatMessageEncoder;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -31,7 +32,9 @@ public class WebSocketServlet {
     private final Logger log = LoggerFactory.getLogger(WebSocketServlet.class);
 
     private static Map<Session, String> nickNames = new ConcurrentHashMap<>();
-
+    
+    private static List<Session>  sessions = new ArrayList<Session>();
+    
     private Session currentSession;
 
     @OnOpen
@@ -59,13 +62,14 @@ public class WebSocketServlet {
             } else {
                 String str = map.get("user").toString();
                 // remove '[]' from string
+
+                // add room name to connected users properties.
+                session.getUserProperties().put("room", room);
                 str = str.substring(1, str.length() - 1);
                 nickNames.put(session, str);
+                sessions.add(session);
             }
         }
-
-        // add room name to connected users properties.
-        session.getUserProperties().put("room", room);
 
         this.currentSession = session;
         sendGreetings(session);
@@ -130,37 +134,41 @@ public class WebSocketServlet {
          */
         String room = (String) session.getUserProperties().get("room");
 
-        try {
-            for (Session s : session.getOpenSessions()) {
-                if (s.isOpen() && (room != null) && room.equals(s.getUserProperties().get("room"))) {
-
-                    /**
-                     * Collect the users nicknames which are connected to this
-                     * room.
-                     */
-                    Set<String> userList = new LinkedHashSet<>();
-
-                    for (Session ses : nickNames.keySet()) {
-                        String userRoom = (String) ses.getUserProperties().get("room");
-                        String notifyRoom = (String) session.getUserProperties().get("room");
-
-                        if (userRoom.equals(notifyRoom)) {
-                            userList.add(nickNames.get(ses));
-                        }
-                    }
-
-                    chatMessage.setNicknames(userList);
-
-                    // Check if user has closed the browser
-                    try {
-                        s.getBasicRemote().sendObject(chatMessage);
-                    } catch (IllegalStateException e) {
-                        log.error(e.toString());
+        for (Session s : session.getOpenSessions()) {
+            if (s.isOpen() && (room != null) && room.equals(s.getUserProperties().get("room"))) {
+                
+                /**
+                 * Collect the users nicknames which are connected to this
+                 * room.
+                 */
+                Set<String> userList = new LinkedHashSet<>();
+                
+                for (Session ses : nickNames.keySet()) {
+                    String userRoom = (String) ses.getUserProperties().get("room");
+                    String notifyRoom = (String) session.getUserProperties().get("room");
+                    
+                    if (userRoom.equals(notifyRoom)) {
+                        userList.add(nickNames.get(ses));
                     }
                 }
+                
+                chatMessage.setNicknames(userList);
+                
+                // Check if user has closed the browser
+                try {
+                    for(Session ss : sessions){
+                        try{
+                            ss.getBasicRemote().sendObject(chatMessage);
+                        }
+                        catch(Exception ex)
+                        {
+                            continue;
+                        }
+                    }
+                } catch (IllegalStateException e) {
+                    log.error(e.toString());
+                }
             }
-        } catch (IOException | EncodeException e) {
-            log.error(e.toString());
         }
     }
 
@@ -208,10 +216,19 @@ public class WebSocketServlet {
             chatMsg.setNicknames(userList);
 
             // notify all other connected users
-            onMessage(session, chatMsg);
-
-            // send to user self to get the user nicknames list
-            session.getAsyncRemote().sendObject(chatMsg);
+            try {
+                for(Session ss : sessions){
+                    try{
+                        ss.getBasicRemote().sendObject(chatMsg);
+                    }
+                    catch(Exception ex)
+                    {
+                        continue;
+                    }
+                }
+            } catch (IllegalStateException e) {
+                log.error(e.toString());
+            }
         }
     }
 }

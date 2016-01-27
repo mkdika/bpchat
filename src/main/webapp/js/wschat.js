@@ -5,7 +5,7 @@ var wsocket;
 var room = 'bpchat';
 var serviceLocation = '';
 var uid = localStorage.getItem("userid");
-var serviceLocation = "ws://localhost:8084/bpchat/ws/";
+var serviceLocation = "ws://localhost:9898/bpchat/ws/";
 
 function pops() {
     alert(uid);
