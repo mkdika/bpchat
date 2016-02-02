@@ -36,16 +36,19 @@ function connectToChatserver() {
 
     if (checkWebSocket() === false) {
         alert(zk('$errLbl_WebSocketNotSupported').$().getValue());
+        $(location).attr("href","/bpchat");
     }
 
     if (isStrEmpty(uid)) {
         alert(zk('$errLbl_UsernameMissing').$().getValue());
+        $(location).attr("href","/bpchat");
         return;
     }
 
     // Check if only a-z; A-Z, 0-9 is inserted as nickname
     if (!/^[0-9a-zA-Z]+$/.test(uid)) {
         alert(zk('$errLbl_FalseCharacterForUsername').$().getValue());
+        $(location).attr("href","/bpchat");
         return;
     }
 
@@ -77,7 +80,7 @@ function connectToChatserver() {
     wsocket.onclose = function () {
     };
 
-    alert("Starting websocket chat");
+    //alert("Starting websocket chat");
 }
 
 /*

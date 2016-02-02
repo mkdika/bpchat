@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
 import javax.websocket.EncodeException;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -114,7 +115,7 @@ public class WebSocketServlet {
          * Chrome: onError<br>
          * Firefox: onClose<br>
          */
-        onMessage(session, chatMsg);
+        sendMessageToAll(chatMsg);
     }
 
     @OnError
@@ -155,19 +156,7 @@ public class WebSocketServlet {
                 chatMessage.setNicknames(userList);
                 
                 // Check if user has closed the browser
-                try {
-                    for(Session ss : sessions){
-                        try{
-                            ss.getBasicRemote().sendObject(chatMessage);
-                        }
-                        catch(Exception ex)
-                        {
-                            continue;
-                        }
-                    }
-                } catch (IllegalStateException e) {
-                    log.error(e.toString());
-                }
+                sendMessageToAll(chatMessage);
             }
         }
     }
@@ -177,7 +166,7 @@ public class WebSocketServlet {
      *
      * @param session The websocket user session.
      */
-    private void sendGreetings(final Session session) {
+    private void sendGreetings(final Session session){
 
         if (session != null) {
 
@@ -216,19 +205,26 @@ public class WebSocketServlet {
             chatMsg.setNicknames(userList);
 
             // notify all other connected users
-            try {
+            sendMessageToAll(chatMsg);
+        }
+    }
+    
+    
+    private void sendMessageToAll(ChatMessage message)
+    {
+        try {
                 for(Session ss : sessions){
                     try{
-                        ss.getBasicRemote().sendObject(chatMsg);
+                        ss.getBasicRemote().sendObject(message);
                     }
                     catch(Exception ex)
                     {
                         continue;
                     }
                 }
+                //session.getBasicRemote().sendObject(chatMsg);
             } catch (IllegalStateException e) {
                 log.error(e.toString());
             }
-        }
     }
 }
