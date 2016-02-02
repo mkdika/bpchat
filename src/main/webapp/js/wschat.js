@@ -5,7 +5,7 @@ var wsocket;
 var room = 'bpchat';
 var serviceLocation = '';
 var uid = localStorage.getItem("userid");
-var serviceLocation = "ws://localhost:8084/bpchat/ws/";
+var serviceLocation = "ws://localhost:9898/bpchat/ws/";
 
 function pops() {
     alert(uid);
@@ -36,16 +36,19 @@ function connectToChatserver() {
 
     if (checkWebSocket() === false) {
         alert(zk('$errLbl_WebSocketNotSupported').$().getValue());
+        $(location).attr("href","/bpchat");
     }
 
     if (isStrEmpty(uid)) {
         alert(zk('$errLbl_UsernameMissing').$().getValue());
+        $(location).attr("href","/bpchat");
         return;
     }
 
     // Check if only a-z; A-Z, 0-9 is inserted as nickname
     if (!/^[0-9a-zA-Z]+$/.test(uid)) {
         alert(zk('$errLbl_FalseCharacterForUsername').$().getValue());
+        $(location).attr("href","/bpchat");
         return;
     }   
 
@@ -75,7 +78,9 @@ function connectToChatserver() {
     };
 
     wsocket.onclose = function () {
-    };  
+    };
+
+    //alert("Starting websocket chat");
 }
 
 /*
